@@ -1,14 +1,16 @@
 package main
 
 import (
-  "chat/util"
+  "fmt"
 )
 
 func main() {
-  blockedIPs: = []string {"192.168.0.19", "192.168.0.20"}
-  addToBlockedList(blockedIPs)
+  list := getBlockedIPs()
+  for i := range list {
+    fmt.Println(list[i])
+  }
 }
 
-func addToBlockedList(ips []string) {
-  util.SaveBlockedIPs(ips)
+func getBlockedIPs() []string {
+  return []string{"192.168.0.17", "192.168.0.18", "192.168.0.19", "192.168.0.20"}
 }
